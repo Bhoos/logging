@@ -1,6 +1,6 @@
 {
   "name": "@bhoos/logging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logging library",
   "main": "dist/index.js",
   "scripts": {
