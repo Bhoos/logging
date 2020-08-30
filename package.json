@@ -1,0 +1,25 @@
+{
+  "name": "@bhoos/logging",
+  "version": "1.0.0",
+  "description": "Logging library",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc"
+  },
+  "repository": "git@github.com:bhoos/logging",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "Ranjan Shrestha <ranjan@sharingapples.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.742.0"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.2",
+    "jest": "^26.4.2"
+  }
+}
