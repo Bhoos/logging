@@ -1,9 +1,11 @@
 {
   "name": "@bhoos/logging",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Logging library",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc",
     "prepack": "yarn build"
