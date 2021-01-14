@@ -29,10 +29,11 @@ export async function log(type: string, payload: any) {
  * possible to get the same log twice in this scenario
  * @param fn
  */
-export async function peek(fn: (msgId: string, type: string, payload: any) => Promise<boolean | void>) {
+export async function peek(fn: (msgId: string, type: string, payload: any) => Promise<boolean | void>, WaitTimeSeconds: number = 0) {
   const res = await sqs.receiveMessage({
     QueueUrl: queue,
     MaxNumberOfMessages: 10,
+    WaitTimeSeconds,
   }).promise();
 
   if (!res.Messages) return [];
@@ -56,8 +57,8 @@ export async function peek(fn: (msgId: string, type: string, payload: any) => Pr
  *           from the queue.
  *
  */
-export async function read(fn: (msgId: string, type: string, payload: any) => Promise<boolean | void>) {
-  const res = await peek(fn);
+export async function read(fn: (msgId: string, type: string, payload: any) => Promise<boolean | void>, WaitTimeSeconds: number = 0) {
+  const res = await peek(fn, WaitTimeSeconds);
 
   if (res.length) {
     await sqs.deleteMessageBatch({
@@ -66,5 +67,5 @@ export async function read(fn: (msgId: string, type: string, payload: any) => Pr
     }).promise();
   }
 
-  return res.length;
+  return res;
 }
