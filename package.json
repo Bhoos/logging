@@ -3,8 +3,10 @@
   "version": "1.0.1",
   "description": "Logging library",
   "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "prepack": "yarn build"
   },
   "repository": "git@github.com:bhoos/logging",
   "publishConfig": {
